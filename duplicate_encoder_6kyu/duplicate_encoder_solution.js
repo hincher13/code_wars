@@ -1,25 +1,21 @@
-let example = "(( @"      
-// solution should be "((("
-
-let exampleLength = example.length;
-let stringIndex = 0;
-let exampleLowerCase = example.toLowerCase()
-let newString = ''
-
-
-while (stringIndex + 1 <= exampleLength) {
-  let currentChar = exampleLowerCase[stringIndex]
-  let exampleArray = exampleLowerCase.split('')
+function duplicateEncode(word){
+    
+  let stringIndex = 0;
+  let wordLowerCase = word.toLowerCase();
+  let newWord = '';
   
-  if (
-    (exampleArray.filter(charachter => charachter == currentChar)).length > 1
-  ) {
-    newString += ')';
-  } else {
-    newString += '(';
-  }
- 
-  stringIndex++;
+  while (stringIndex + 1 <= word.length) {
+    
+    let currentChar = wordLowerCase[stringIndex];
+    let wordArray = wordLowerCase.split('');
+    
+    if((wordArray.filter(charachter => charachter == currentChar)).length > 1 ) {
+      newWord += ')';
+      } else {
+        newWord += '(';
+      }
+    stringIndex++;
+    }
+   
+  return newWord;
 }
-
-console.log(newString)
